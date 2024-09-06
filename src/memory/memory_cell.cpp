@@ -162,7 +162,7 @@ pvoid MemoryCell::ptr()
     }
     
     MemoryChunk *chunk = (MemoryChunk *)m_belong_chunk;
-    return (pvoid)((ulong)chunk -> get_data() + get_start() * chunk-> get_align_size())
+    return (pvoid)((ulong)chunk -> get_data() + get_start() * chunk-> get_align_size());
 }
 
 

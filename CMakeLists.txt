@@ -11,4 +11,10 @@ add_executable(my_memory_pool main.cpp
         include/gc/gc_factory.h
         include/memory/memory_pool.h
         src/memory/memory_pool.cpp
+        include/gc/interface/garbage_collect.h
+        include/gc/mark_clean.h
+        include/gc/mark_compact.h
+        src/gc/mark_clean.cpp
+        src/gc/gc_factory.cpp
+        src/gc/mark_compact.cpp
 )
