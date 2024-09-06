@@ -91,6 +91,7 @@ MemoryCell *MemoryCell::inc_end(uint step)
 MemoryCell *MemoryCell::desc_end(uint step)
 {
     m_end -= step;
+    return this;
 }
 
 MemoryCell *MemoryCell::inc_size(uint step)

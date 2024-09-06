@@ -10,4 +10,5 @@ add_executable(my_memory_pool main.cpp
         src/memory/memory_chunk.cpp
         include/gc/gc_factory.h
         include/memory/memory_pool.h
+        src/memory/memory_pool.cpp
 )
