@@ -26,6 +26,6 @@ MemoryChunk *MemoryPool::new_chunk(uint mem_size)
 
 void MemoryPool::print_chunks()
 {
-    INFO_PRINT("[打印未释放的内存]开始\n")
+    INFO_PRINT("[打印未释放的内存]开始\n");
 }
 

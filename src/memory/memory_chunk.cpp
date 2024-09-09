@@ -5,6 +5,7 @@
 #include "../../include/common.h"
 #include "../../include/memory/memory_chunk.h"
 #include "../../include/gc/gc_factory.h"
+#include <string.h>
 
 MemoryChunk::MemoryChunk(uint size, char *filename, uint line) : m_size(size), m_filename(filename), m_line(line) {
     m_align_size = ALIGN_SIZE;

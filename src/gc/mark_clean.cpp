@@ -62,7 +62,7 @@ void MarkClean::clean_step() {
             iterator = get_mem_chunk()->get_used_table()->erase(iterator);
 
             /* 处理available_table */
-            get_mem_chunk()->get_available_table()->push_front(new MemoryCell(cell->get_start()));
+            get_mem_chunk()->get_available_table()->push_front(new MemoryCell(cell->get_start(), cell->get_size()));
 
             get_mem_chunk()->desc_used_cell_num(cell->get_size());
 
@@ -101,5 +101,5 @@ void MarkClean::run()
     clean_step();
 
     get_mem_chunk()->print_all_table();
-    PRINT("[标记-清除算法]结束运行\n")
+    PRINT("[标记-清除算法]结束运行\n");
 }
