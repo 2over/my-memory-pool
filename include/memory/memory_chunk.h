@@ -141,6 +141,4 @@ public:
 
     void print_all_table();
 
-public:
-    void collect(size_t size);
 };

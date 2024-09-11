@@ -24,7 +24,8 @@ public:
     /**
      * 创建新的chunk
      */
-     MemoryChunk *new_chunk(uint mem_size);
+    MemoryChunk *new_chunk(uint mem_size);
+
 public:
     /**
      * 打印所有的Chunk

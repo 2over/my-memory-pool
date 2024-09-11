@@ -86,8 +86,7 @@ void MarkClean::clean_step() {
 
 // ==========
 
-void MarkClean::run()
-{
+void MarkClean::run() {
     PRINT("[标记-清除算法]开始运行\n");
 
     if (NULL == get_mem_chunk()) {

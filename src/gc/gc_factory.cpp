@@ -48,12 +48,10 @@ void GCFactory::minor_run(GC_TYPE type, MemoryChunk *mem_chunk) {
 }
 
 
-void GCFactory::major_run(GC_TYPE type, MemoryChunk *mem_chunk)
-{
+void GCFactory::major_run(GC_TYPE type, MemoryChunk *mem_chunk) {
 
 }
 
-void GCFactory::full_run(GC_TYPE type, MemoryPool *memoryPool)
-{
+void GCFactory::full_run(GC_TYPE type, MemoryPool *memoryPool) {
 
 }

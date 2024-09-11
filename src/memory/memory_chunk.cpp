@@ -98,6 +98,10 @@ uint MemoryChunk::get_align_size() {
     return m_align_size;
 }
 
+uint MemoryChunk::get_cell_num() {
+    return m_cell_num;
+}
+
 MemoryChunk *MemoryChunk::inc_used_cell_num(uint step) {
     m_used_cell_num += step;
 
@@ -118,12 +122,52 @@ MemoryChunk *MemoryChunk::desc_used_cell_num(uint step) {
     return this;
 }
 
+list<MemoryCell *> *MemoryChunk::get_available_table() {
+    return &m_available_table;
+}
+
 list<MemoryCell *> *MemoryChunk::get_used_table() {
     return &m_used_table;
 }
 
 list<MemoryCell *> *MemoryChunk::get_transfer_table() {
     return &m_transfer_table;
+}
+
+list<MemoryCell *> *MemoryChunk::get_idle_table() {
+    return &m_idle_table;
+}
+
+uint MemoryChunk::get_cell_start() {
+    return m_cell_start;
+}
+
+MemoryChunk *MemoryChunk::get_cell_start(uint val) {
+    m_cell_start = val;
+    return this;
+}
+
+uint MemoryChunk::get_new_cell_start() {
+    return (0 == m_cell_start) ? m_cell_num / 2 : 0;
+}
+
+uint MemoryChunk::get_old_cell_start() {
+    return get_new_cell_start();
+}
+
+MemoryChunk *MemoryChunk::renew_cell_start() {
+    m_cell_start = get_new_cell_start();
+    return this;
+}
+
+MemoryChunk *MemoryChunk::set_available_table(list<MemoryCell *> &table) {
+    m_available_table = table;
+    return this;
+}
+
+MemoryChunk *MemoryChunk::set_used_cell_num(uint val) {
+    m_used_cell_num = val;
+    return this;
 }
 
 // ========
@@ -182,13 +226,14 @@ MemoryCell *MemoryChunk::malloc_after_gc(MemoryCell *transfer_cell) {
             ptr_from = transfer_cell->ptr();
 
             /* 调整 transfer cell后插入used_table */
-            transfer_cell->set_start(cell -> get_start());
+            transfer_cell->set_start(cell->get_start());
             transfer_cell->set_end(transfer_cell->get_start() + transfer_cell->get_size());
 
             /* 新地址，需要将数据拷贝过来 */
             ptr_to = transfer_cell->ptr();
 
-            INFO_PRINT("开始拷贝内存: ptr_from=%X, ptr_to=%X, size=%d\n", ptr_from, ptr_to, transfer_cell->get_size() * get_align_size());
+            INFO_PRINT("开始拷贝内存: ptr_from=%X, ptr_to=%X, size=%d\n", ptr_from, ptr_to,
+                       transfer_cell->get_size() * get_align_size());
 
             memcpy(ptr_to, ptr_from, transfer_cell->get_size() * get_align_size());
 
@@ -216,20 +261,22 @@ MemoryCell *MemoryChunk::malloc_after_gc(MemoryCell *transfer_cell) {
     return ret;
 }
 
-void MemoryChunk::free_available_table()
-{
+MemoryCell *MemoryChunk::malloc_after_mark_copy_gc(MemoryCell *used_cell) {
+    return malloc_after_gc(used_cell);
+}
+
+void MemoryChunk::free_available_table() {
     PRINT("[释放available_table]开始\n");
 
     list<MemoryCell *>::iterator tmp;
     for (tmp = m_available_table.begin(); tmp != m_available_table.end(); tmp++) {
-        delete(*tmp);
+        delete (*tmp);
     }
 
     m_available_table.clear();
 }
 
-void MemoryChunk::free_used_table()
-{
+void MemoryChunk::free_used_table() {
     PRINT("[释放used_table]开始\n");
 
     list<MemoryCell *>::iterator tmp;
@@ -241,8 +288,7 @@ void MemoryChunk::free_used_table()
 
 
 // =========
-void MemoryChunk::to_string()
-{
+void MemoryChunk::to_string() {
     PRINT("[打印used_table]开始, size = %d\n", get_used_table()->size());
 
     list<MemoryCell *>::iterator tmp;
@@ -254,8 +300,31 @@ void MemoryChunk::to_string()
     PRINT("打印used_table]结束\n");
 }
 
-void MemoryChunk::print_transfer_table()
-{
+void MemoryChunk::print_available_table() {
+    PRINT("[打印available_table]开始， size=%d\n", get_available_table()->size());
+    list<MemoryCell *>::iterator tmp;
+
+    for (tmp = m_available_table.begin(); tmp != m_available_table.end(); tmp++) {
+        PRINT("\t %X: cell_start=%d, cell_end=%d, cell_size=%d\n", *tmp, (*tmp)->get_start(), (*tmp)->get_end(),
+              (*tmp)->get_size());
+    }
+
+    PRINT("[打印available_table]结束\n");
+}
+
+void MemoryChunk::print_used_table() {
+    PRINT("[打印used_table]开始, size=%d\n", get_used_table()->size());
+    list<MemoryCell *>::iterator tmp;
+
+    for (tmp = m_used_table.begin(); tmp != m_used_table.end(); tmp++) {
+        PRINT("\t %X: cell_start=%d, cell_end=%d, cell_size=%d\n", *tmp, (*tmp)->get_start(), (*tmp)->get_end(),
+              (*tmp)->get_size());
+    }
+
+    PRINT("[打印used_table]结束\n");
+}
+
+void MemoryChunk::print_transfer_table() {
     PRINT("[打印transfer_table]开始, size=%d\n", get_transfer_table()->size());
 
     list<MemoryCell *>::iterator tmp;
@@ -268,8 +337,20 @@ void MemoryChunk::print_transfer_table()
     PRINT("[打印transfer_table]结束\n");
 }
 
-void MemoryChunk::print_all_table()
-{
+void MemoryChunk::print_idle_table() {
+    PRINT("[打印idle_table]开始: size=%d\n", get_idle_table());
+
+    list<MemoryCell *>::iterator tmp;
+
+    for (tmp = m_idle_table.begin(); tmp != m_idle_table.end(); tmp++) {
+        PRINT("\t %X: cell_start=%d, cell_end=%d, cell_size=%d\n", *tmp, (*tmp)->get_start(), (*tmp)->get_end(),
+              (*tmp)->get_size());
+    }
+
+    PRINT("[打印idle_table]结束\n");
+}
+
+void MemoryChunk::print_all_table() {
     print_available_table();
 
     print_used_table();
