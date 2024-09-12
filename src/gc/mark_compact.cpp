@@ -109,5 +109,97 @@ void MarkCompact::memory_compact_before() {
 
     while (iterator != get_mem_chunk()->get_available_table()->end()) {
 
+        MemoryCell *cell = *iterator;
+
+        bool flag = false;
+
+        tmp_iterator = iterator;
+
+        while ((++tmp_iterator) != get_mem_chunk()->get_available_table()->end()) {
+            MemoryCell *next_cell = *tmp_iterator;
+
+            INFO_PRINT("\t 比较current(%d ~ %d) 与next(%d ~ %d)\n",
+                       cell->get_start(), cell->get_end(), next_cell->get_start(), next_cell->get_end());
+
+            if (cell->get_start() == next_cell->get_end()) {
+                INFO_PRINT("\t\t 合并current(%d ~ %d) 与 next(%d ~ %d)\n",
+                           cell->get_start(), cell->get_end(), next_cell->get_start(), next_cell->get_end());
+
+                cell->desc_start(next_cell->get_size());
+                cell->inc_size(next_cell->get_size());
+
+                // 释放cell
+                get_mem_chunk()->get_available_table()->erase(tmp_iterator);
+                delete next_cell;
+
+                // 合并后打印数据
+                get_mem_chunk()->print_all_table();
+
+                // 控制下次循环;指针充值，跳过外层循环
+                flag = true;
+
+                iterator = get_mem_chunk()->get_available_table()->begin();
+
+                break;
+            }
+        }
+
+        if (!flag) {
+            iterator++;
+        }
     }
+
+    INFO_PRINT("[[向元素头部合并]结束\n]");
 }
+
+void MarkCompact::memory_compact_after() {
+    INFO_PRINT("[[向元素尾部合并]]开始\n");
+
+    list<MemoryCell *>::iterator iterator = get_mem_chunk()->get_available_table()->begin();
+    list<MemoryCell *>::iterator tmp_iterator;
+
+    while (iterator != get_mem_chunk()->get_available_table()->end()) {
+        MemoryCell *cell = *iterator;
+
+        bool flag = false;
+
+        tmp_iterator = iterator;
+
+        while ((++tmp_iterator) != get_mem_chunk()->get_available_table()->end()) {
+            MemoryCell *next_cell = *tmp_iterator;
+
+            INFO_PRINT("\t 比较current(%d ~ %d) 与next(%d ~ %d)\n",
+                    cell->get_start(), cell-> get_end(), next_cell->get_start(), next_cell->get_end());
+
+            if (cell->get_end() == next_cell->get_start()) {
+                INFO_PRINT("\t\t 合并current(%d ~ %d) 与next (%d ~ %d)\n",
+                        cell->get_start(), cell->get_end(), next_cell->get_start(), next_cell->get_end());
+
+                cell->inc_end(next_cell->get_size());
+                cell->inc_size(next_cell->get_size());
+
+                // 释放cell
+                get_mem_chunk()->get_available_table()->erase(tmp_iterator);
+
+                delete next_cell;
+
+                // 合并后打印数据
+                get_mem_chunk()->print_all_table();
+
+                // 控制下次循环:指针重置，跳过外层循环
+                flag = true;
+
+                iterator = get_mem_chunk()->get_available_table()->begin();
+
+                break;
+            }
+        }
+
+        if (!flag) {
+            iterator++;
+        }
+    }
+    INFO_PRINT("[[向元素尾部合并]结束\n]");
+
+}
+
