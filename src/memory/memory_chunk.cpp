@@ -36,16 +36,10 @@ MemoryChunk::MemoryChunk(uint size, char *filename, uint line) : m_size(size), m
 
             break;
         }
-
-        print_available_table();
-        print_idle_table();
-
-
     }
-    m_used_cell_num = 0;
-    m_available_table.push_front(new MemoryCell(0, m_cell_num));
 
     print_available_table();
+    print_idle_table();
 }
 
 MemoryChunk::~MemoryChunk() {
@@ -362,7 +356,7 @@ void MemoryChunk::print_transfer_table() {
 }
 
 void MemoryChunk::print_idle_table() {
-    PRINT("[打印idle_table]开始: size=%d\n", get_idle_table());
+    PRINT("[打印idle_table]开始: size=%d\n", get_idle_table()->size());
 
     list<MemoryCell *>::iterator tmp;
 

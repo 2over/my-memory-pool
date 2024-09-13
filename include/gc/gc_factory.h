@@ -5,12 +5,6 @@
 #include "../common.h"
 #include "../memory/memory_pool.h"
 
-typedef enum {
-    GC_MARK_CLEAN,
-    GC_MARK_COLLECT,
-    GC_MARK_COPY,
-    GC_G1,
-} GC_TYPE;
 
 typedef enum {
     GC_STATUS_CLOSED,

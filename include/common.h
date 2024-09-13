@@ -19,6 +19,15 @@ typedef union {
 } Align;
 
 #define  ALIGN_SIZE     (sizeof(Align))
+
+typedef enum {
+    GC_MARK_CLEAN,
+    GC_MARK_COLLECT,
+    GC_MARK_COPY,
+    GC_G1,
+} GC_TYPE;
+
+#define DEFAULT_GC_TYPE GC_MARK_COLLECT
 /**
  * 自定义打印输出
  */
