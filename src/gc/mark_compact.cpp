@@ -36,6 +36,7 @@ void MarkCompact::mark_step() {
 
         cell->to_string("模拟打标记");
 
+        // 打上标记的条件
         if (cell->get_size() == 4 && !cell->get_transfer_object()) {
             INFO_PRINT("\t 打上标记 \n");
             /**

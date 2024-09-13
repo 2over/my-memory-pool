@@ -49,7 +49,7 @@ private:
      */
 private:
     /**
-     * 存储数据的敌法那个
+     * 存储数据
      */
     pvoid m_data;
 
