@@ -5,7 +5,7 @@
 #include "../../include/memory/memory_cell.h"
 #include "../../include/memory/memory_chunk.h"
 
-MemoryCell::MemoryCell(uint start, uint size) {
+MemoryCell::MemoryCell(uint start, uint size) : m_start(start), m_size(size) {
     m_end = m_start + m_size;
     m_mark = false;
 }

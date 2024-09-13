@@ -18,6 +18,30 @@ MemoryChunk::MemoryChunk(uint size, char *filename, uint line) : m_size(size), m
         exit(1);
     }
 
+    switch (DEFAULT_GC_TYPE) {
+        case GC_MARK_CLEAN:
+        case GC_MARK_COLLECT: {
+            m_used_cell_num = 0;
+
+            m_available_table.push_front(new MemoryCell(0, m_cell_num));
+
+            break;
+        }
+        case GC_MARK_COPY: {
+            m_used_cell_num = 0;
+            m_cell_start = 0;
+
+            m_available_table.push_front(new MemoryCell(0, m_cell_num / 2));
+            m_idle_table.push_front(new MemoryCell(m_cell_num / 2, m_cell_num / 2));
+
+            break;
+        }
+
+        print_available_table();
+        print_idle_table();
+
+
+    }
     m_used_cell_num = 0;
     m_available_table.push_front(new MemoryCell(0, m_cell_num));
 
@@ -356,4 +380,6 @@ void MemoryChunk::print_all_table() {
     print_used_table();
 
     print_transfer_table();
+
+    print_idle_table();
 }

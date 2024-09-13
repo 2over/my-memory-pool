@@ -38,7 +38,7 @@ void GCFactory::minor_run(GC_TYPE type, MemoryChunk *mem_chunk) {
             (new MarkCompact(mem_chunk))->run();
             break;
         case GC_MARK_COPY:
-
+//            (new Mark)
             break;
         case GC_G1:
             break;

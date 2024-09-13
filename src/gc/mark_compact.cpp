@@ -53,6 +53,32 @@ void MarkCompact::mark_step() {
     }
 }
 
+void MarkCompact::memory_compact_step() {
+    PRINT("\t 开始执行内存整理操作\n");
+
+    memory_compact_before();
+
+    memory_compact_after();
+
+    PRINT("\t 结束内存整理\n");
+}
+
+void MarkCompact::data_compact_step() {
+    PRINT("\t 开始执行数据整理操作\n");
+
+    list<MemoryCell *>::iterator transfer_ite = get_mem_chunk()->get_transfer_table()->begin();
+
+    while (transfer_ite != get_mem_chunk()->get_transfer_table()->end()) {
+        MemoryCell *transfer_cell = *transfer_ite;
+        transfer_cell->to_string("开始整理数据");
+        get_mem_chunk()->malloc_after_gc(transfer_cell);
+
+        transfer_ite = get_mem_chunk()->get_transfer_table()->erase(transfer_ite);
+    }
+
+    PRINT("\t 结束数据整理操作\n");
+}
+
 void MarkCompact::clean_step() {
     PRINT("\t 开始执行清理操作\n");
 
@@ -203,3 +229,24 @@ void MarkCompact::memory_compact_after() {
 
 }
 
+
+// ===================
+void MarkCompact::run() {
+    PRINT("[标记-整理算法]开始运行\n");
+
+    if (NULL == get_mem_chunk()) {
+        ERROR_PRINT("\t 请传入需要释放的chunk\n");
+
+        exit(1);
+    }
+
+    mark_step();
+
+    clean_step();
+
+    memory_compact_step();
+
+    data_compact_step();
+
+    PRINT("[标记-整理算法]结束运行\n");
+}
