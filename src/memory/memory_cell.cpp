@@ -22,7 +22,11 @@ MemoryCell::MemoryCell(MemoryCell &cell) {
 
 MemoryCell::~MemoryCell() {
     INFO_PRINT("[调用析构函数%s] 释放资源\n", __func__);
-    to_string("\t 释放的cell信息");
+    switch (DEFAULT_GC_TYPE) {
+        case GC_MARK_COPY: {
+            to_string("\t 释放的cell信息");
+        }
+    }
 }
 
 uint MemoryCell::get_start() {

@@ -37,7 +37,7 @@ void mark_copy() {
 }
 
 void mark_compact() {
-    MemoryPool *mem_pool = new MemoryPool;
+    MemoryPool *mem_pool = new MemoryPool();
 
     MemoryChunk *mem_chunk = mem_pool->new_chunk(78);
     // 模拟内存足够能分到内存
@@ -61,8 +61,16 @@ void mark_compact() {
 }
 int main() {
 
-    mark_copy();
-//    mark_compact();
+    switch (DEFAULT_GC_TYPE) {
+        case GC_MARK_COLLECT: {
+            mark_compact();
+            break;
+        }
+        case GC_MARK_COPY: {
+            mark_copy();
+            break;
+        }
+    }
     return 0;
 }
 

@@ -25,6 +25,7 @@ MemoryChunk::MemoryChunk(uint size, char *filename, uint line) : m_size(size), m
 
             m_available_table.push_front(new MemoryCell(0, m_cell_num));
 
+            print_available_table();
             break;
         }
         case GC_MARK_COPY: {
@@ -34,12 +35,13 @@ MemoryChunk::MemoryChunk(uint size, char *filename, uint line) : m_size(size), m
             m_available_table.push_front(new MemoryCell(0, m_cell_num / 2));
             m_idle_table.push_front(new MemoryCell(m_cell_num / 2, m_cell_num / 2));
 
+            print_available_table();
+            print_idle_table();
             break;
         }
     }
 
-    print_available_table();
-    print_idle_table();
+
 }
 
 MemoryChunk::~MemoryChunk() {
@@ -93,11 +95,13 @@ MemoryCell *MemoryChunk::real_malloc(MemoryCell *available_cell, uint cell_num) 
             if (0 == available_cell->get_size()) {
                 free_available_table();
             }
+            break;
         }
         case GC_MARK_COLLECT: {
             if (m_cell_num == m_used_cell_num) {
                 free_available_table();
             }
+            break;
         }
     }
 
@@ -278,9 +282,19 @@ MemoryCell *MemoryChunk::malloc_after_gc(MemoryCell *transfer_cell) {
             /**
              * 如果Chunk用光了，就清空available_table
              */
-            if (m_cell_num == m_used_cell_num) {
-                free_available_table();
+            switch (DEFAULT_GC_TYPE) {
+                case GC_MARK_COLLECT: {
+                    if (m_cell_num == m_used_cell_num) {
+                        free_available_table();
+                    }
+                }
+                case GC_MARK_COPY: {
+                    if (0 == cell->get_size()) {
+                        free_available_table();
+                    }
+                }
             }
+
 
             break;
         }
@@ -303,7 +317,16 @@ void MemoryChunk::free_available_table() {
 
     m_available_table.clear();
 
-    PRINT("[释放available_table]结束\n");
+    switch (DEFAULT_GC_TYPE) {
+        case GC_MARK_COPY: {
+            PRINT("[释放available_table]结束\n");
+
+            break;
+        }
+        case GC_MARK_COLLECT: {
+            break;
+        }
+    }
 }
 
 void MemoryChunk::free_used_table() {
@@ -387,5 +410,9 @@ void MemoryChunk::print_all_table() {
 
     print_transfer_table();
 
-    print_idle_table();
+    switch (DEFAULT_GC_TYPE) {
+        case GC_MARK_COPY: {
+            print_idle_table();
+        }
+    }
 }
