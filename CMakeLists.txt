@@ -17,4 +17,4 @@ add_executable(my_memory_pool main.cpp
         src/gc/mark_clean.cpp
         src/gc/gc_factory.cpp
         src/gc/mark_compact.cpp
-)
+        include/gc/mark_copy.h src/gc/memory_copy.cpp)

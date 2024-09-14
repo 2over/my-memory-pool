@@ -88,9 +88,19 @@ MemoryCell *MemoryChunk::real_malloc(MemoryCell *available_cell, uint cell_num) 
     /**
      * 如果Chunk用光了，就清空available_table
      */
-    if (m_cell_num == m_used_cell_num) {
-        free_available_table();
+    switch (DEFAULT_GC_TYPE) {
+        case GC_MARK_COPY: {
+            if (0 == available_cell->get_size()) {
+                free_available_table();
+            }
+        }
+        case GC_MARK_COLLECT: {
+            if (m_cell_num == m_used_cell_num) {
+                free_available_table();
+            }
+        }
     }
+
 
     return used_cell;
 }
@@ -292,6 +302,8 @@ void MemoryChunk::free_available_table() {
     }
 
     m_available_table.clear();
+
+    PRINT("[释放available_table]结束\n");
 }
 
 void MemoryChunk::free_used_table() {
@@ -319,7 +331,7 @@ void MemoryChunk::to_string() {
 }
 
 void MemoryChunk::print_available_table() {
-    PRINT("[打印available_table]开始， size=%d\n", get_available_table()->size());
+    PRINT("[打印available_table]开始,  size=%d\n", get_available_table()->size());
     list<MemoryCell *>::iterator tmp;
 
     for (tmp = m_available_table.begin(); tmp != m_available_table.end(); tmp++) {

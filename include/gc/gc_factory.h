@@ -11,8 +11,6 @@ typedef enum {
     GC_STATUS_WORKING
 } GC_STATUS;
 
-#define DEFAULT_GC_TYPE GC_MARK_COLLECT
-
 class GCFactory {
 private:
     GC_STATUS m_status;

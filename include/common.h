@@ -27,7 +27,7 @@ typedef enum {
     GC_G1,
 } GC_TYPE;
 
-#define DEFAULT_GC_TYPE GC_MARK_COLLECT
+#define DEFAULT_GC_TYPE GC_MARK_COPY
 /**
  * 自定义打印输出
  */

@@ -61,8 +61,8 @@ void mark_compact() {
 }
 int main() {
 
-//    mark_copy();
-    mark_compact();
+    mark_copy();
+//    mark_compact();
     return 0;
 }
 

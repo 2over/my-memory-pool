@@ -6,6 +6,7 @@
 #include "../../include/gc/gc_factory.h"
 #include "../../include/gc/mark_clean.h"
 #include "../../include/gc/mark_compact.h"
+#include "../../include/gc/mark_copy.h"
 
 
 GC_STATUS GCFactory::get_status() {
@@ -38,7 +39,7 @@ void GCFactory::minor_run(GC_TYPE type, MemoryChunk *mem_chunk) {
             (new MarkCompact(mem_chunk))->run();
             break;
         case GC_MARK_COPY:
-//            (new Mark)
+            (new MarkCopy(mem_chunk))->run();
             break;
         case GC_G1:
             break;
