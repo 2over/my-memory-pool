@@ -1,0 +1,80 @@
+/cmake-build-debug/my_memory_pool
+[Info] (/src/memory/memory_chunk.cpp:223->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=0, cell_end=10, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:231->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]找到了满足条件的Cell:start=0, end=10, size=10
+[Info] (/src/memory/memory_chunk.cpp:52->real_malloc):[真正分配内存]Data起始地址=1048CA0, cell_start=0, ret=1048CA0
+[Info] (/src/memory/memory_chunk.cpp:223->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=1, cell_end=10, cell_size=9
+[Info] (/src/memory/memory_chunk.cpp:231->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:236->print_used_table):[打印used_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:244->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]找到了满足条件的Cell:start=1, end=10, size=9
+[Info] (/src/memory/memory_chunk.cpp:52->real_malloc):[真正分配内存]Data起始地址=1048CA0, cell_start=1, ret=1048CA8
+[Info] (/src/memory/memory_chunk.cpp:223->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=3, cell_end=10, cell_size=7
+[Info] (/src/memory/memory_chunk.cpp:231->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:236->print_used_table):[打印used_table]开始, size=2
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=1, cell_end=3, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:244->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]找到了满足条件的Cell:start=3, end=10, size=7
+[Info] (/src/memory/memory_chunk.cpp:52->real_malloc):[真正分配内存]Data起始地址=1048CA0, cell_start=3, ret=1048CB8
+[Info] (/src/memory/memory_chunk.cpp:223->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=7, cell_end=10, cell_size=3
+[Info] (/src/memory/memory_chunk.cpp:231->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:236->print_used_table):[打印used_table]开始, size=3
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=3, cell_end=7, cell_size=4
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=1, cell_end=3, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:244->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]找到了满足条件的Cell:start=7, end=10, size=3
+[Info] (/src/memory/memory_chunk.cpp:52->real_malloc):[真正分配内存]Data起始地址=1048CA0, cell_start=7, ret=1048CD8
+[Info] (/src/memory/memory_chunk.cpp:223->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=9, cell_end=10, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:231->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:236->print_used_table):[打印used_table]开始, size=4
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=7, cell_end=9, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=3, cell_end=7, cell_size=4
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=1, cell_end=3, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:244->print_used_table):[打印used_table]结束
+[Error] (/src/memory/memory_chunk.cpp:180->malloc):没有满足条件的Chunk，无法分配内存，执行GC
+[Info] (/src/gc/gc_factory.cpp:25->minor_run):minor_run
+[Info] (/src/gc/mark_clean.cpp:9->MarkClean):MarkClean
+[Info] (/src/gc/mark_clean.cpp:94->run):[标记-清除算法]开始运行
+[Info] (/src/gc/mark_clean.cpp:33->mark_step):	 开始执行标记操作
+[Info] (/src/gc/mark_clean.cpp:52->clean_step):	 开始执行清理操作
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]检测是否打了标记:start=7, end=9, size=2
+[Info] (/src/gc/mark_clean.cpp:64->clean_step):	 未打标记
+[Info] (/src/memory/memory_cell.cpp:18->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]检测是否打了标记:start=3, end=7, size=4
+[Info] (/src/gc/mark_clean.cpp:79->clean_step):	 打了标记，无法回收
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]检测是否打了标记:start=1, end=3, size=2
+[Info] (/src/gc/mark_clean.cpp:64->clean_step):	 未打标记
+[Info] (/src/memory/memory_cell.cpp:18->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]检测是否打了标记:start=0, end=1, size=1
+[Info] (/src/gc/mark_clean.cpp:64->clean_step):	 未打标记
+[Info] (/src/memory/memory_cell.cpp:18->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_chunk.cpp:223->print_available_table):[打印available_table]开始, size=4
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=1, cell_end=3, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=7, cell_end=9, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:228->print_available_table):	 cell_start=9, cell_end=10, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:231->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:236->print_used_table):[打印used_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:241->print_used_table):	 cell_start=3, cell_end=7, cell_size=4
+[Info] (/src/memory/memory_chunk.cpp:244->print_used_table):[打印used_table]结束
+[Info] (/src/gc/mark_clean.cpp:108->run):[标记-清除算法]结束运行
+[Error] (/src/memory/memory_chunk.cpp:180->malloc):没有满足条件的Chunk，无法分配内存，执行GC
+[Info] (/src/gc/gc_factory.cpp:25->minor_run):minor_run
+[Info] (/src/gc/mark_clean.cpp:9->MarkClean):MarkClean
+[Info] (/src/gc/mark_clean.cpp:94->run):[标记-清除算法]开始运行
+[Info] (/src/gc/mark_clean.cpp:33->mark_step):	 开始执行标记操作
+[Info] (/src/gc/mark_clean.cpp:52->clean_step):	 开始执行清理操作
+[Info] (/src/memory/memory_cell.cpp:135->to_string):[Cell信息]检测是否打了标记:start=3, end=7, size=4
+[Info] (/src/gc/mark_clean.cpp:79->clean_step):	 打了标记，无法回收
+[Error] (/src/gc/mark_clean.cpp:86->clean_step):[GC后]没有可回收的内存，无法分配内存，执行Full GC
+
+Process finished with exit code 1

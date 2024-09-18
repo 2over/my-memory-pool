@@ -1,0 +1,146 @@
+/cmake-build-debug/YuGC
+[Info] (/src/memory/memory_chunk.cpp:360->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:366->print_available_table):	 1F05D80: cell_start=0, cell_end=10, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:369->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:402->print_idle_table):[打印idle_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:408->print_idle_table):	 1F05DC0: cell_start=10, cell_end=20, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:411->print_idle_table):[打印idle_table]结束
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]找到了满足条件的Cell:start=0, end=10, size=10
+[Info] (/src/memory/memory_chunk.cpp:68->real_malloc):[真正分配内存]Data起始地址=1F05CD0, cell_start=0, ret=1F05CD0
+[Info] (/src/memory/memory_chunk.cpp:360->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:366->print_available_table):	 1F05D80: cell_start=1, cell_end=10, cell_size=9
+[Info] (/src/memory/memory_chunk.cpp:369->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:374->print_used_table):[打印used_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06230: cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:383->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_chunk.cpp:388->print_transer_table):[打印transer_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:397->print_transer_table):[打印transer_table]结束
+[Info] (/src/memory/memory_chunk.cpp:402->print_idle_table):[打印idle_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:408->print_idle_table):	 1F05DC0: cell_start=10, cell_end=20, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:411->print_idle_table):[打印idle_table]结束
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]找到了满足条件的Cell:start=1, end=10, size=9
+[Info] (/src/memory/memory_chunk.cpp:68->real_malloc):[真正分配内存]Data起始地址=1F05CD0, cell_start=1, ret=1F05CD8
+[Info] (/src/memory/memory_chunk.cpp:360->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:366->print_available_table):	 1F05D80: cell_start=3, cell_end=10, cell_size=7
+[Info] (/src/memory/memory_chunk.cpp:369->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:374->print_used_table):[打印used_table]开始, size=2
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06270: cell_start=1, cell_end=3, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06230: cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:383->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_chunk.cpp:388->print_transer_table):[打印transer_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:397->print_transer_table):[打印transer_table]结束
+[Info] (/src/memory/memory_chunk.cpp:402->print_idle_table):[打印idle_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:408->print_idle_table):	 1F05DC0: cell_start=10, cell_end=20, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:411->print_idle_table):[打印idle_table]结束
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]找到了满足条件的Cell:start=3, end=10, size=7
+[Info] (/src/memory/memory_chunk.cpp:68->real_malloc):[真正分配内存]Data起始地址=1F05CD0, cell_start=3, ret=1F05CE8
+[Info] (/src/memory/memory_chunk.cpp:360->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:366->print_available_table):	 1F05D80: cell_start=7, cell_end=10, cell_size=3
+[Info] (/src/memory/memory_chunk.cpp:369->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:374->print_used_table):[打印used_table]开始, size=3
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F062B0: cell_start=3, cell_end=7, cell_size=4
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06270: cell_start=1, cell_end=3, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06230: cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:383->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_chunk.cpp:388->print_transer_table):[打印transer_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:397->print_transer_table):[打印transer_table]结束
+[Info] (/src/memory/memory_chunk.cpp:402->print_idle_table):[打印idle_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:408->print_idle_table):	 1F05DC0: cell_start=10, cell_end=20, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:411->print_idle_table):[打印idle_table]结束
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]找到了满足条件的Cell:start=7, end=10, size=3
+[Info] (/src/memory/memory_chunk.cpp:68->real_malloc):[真正分配内存]Data起始地址=1F05CD0, cell_start=7, ret=1F05D08
+[Info] (/src/memory/memory_chunk.cpp:360->print_available_table):[打印available_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:366->print_available_table):	 1F05D80: cell_start=9, cell_end=10, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:369->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:374->print_used_table):[打印used_table]开始, size=4
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F062F0: cell_start=7, cell_end=9, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F062B0: cell_start=3, cell_end=7, cell_size=4
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06270: cell_start=1, cell_end=3, cell_size=2
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06230: cell_start=0, cell_end=1, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:383->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_chunk.cpp:388->print_transer_table):[打印transer_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:397->print_transer_table):[打印transer_table]结束
+[Info] (/src/memory/memory_chunk.cpp:402->print_idle_table):[打印idle_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:408->print_idle_table):	 1F05DC0: cell_start=10, cell_end=20, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:411->print_idle_table):[打印idle_table]结束
+[Info] (/main.cpp:22->main):1F05CE8=====>a, c
+[Error] (/src/memory/memory_chunk.cpp:254->malloc):没有满足条件的Chunk(cell_num=5)，无法分配内存，执行GC
+[Info] (/src/gc/gc_factory.cpp:27->minor_run):minor_run
+[Info] (/src/gc/mark_copy.cpp:33->mark_step):	 开始执行标记操作
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]模拟打标记:start=7, end=9, size=2
+[Info] (/src/gc/mark_copy.cpp:51->mark_step):	 未打标记
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]模拟打标记:start=3, end=7, size=4
+[Info] (/src/gc/mark_copy.cpp:47->mark_step):	 打上标记
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]模拟打标记:start=1, end=3, size=2
+[Info] (/src/gc/mark_copy.cpp:51->mark_step):	 未打标记
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]模拟打标记:start=0, end=1, size=1
+[Info] (/src/gc/mark_copy.cpp:47->mark_step):	 打上标记
+[Info] (/src/gc/mark_copy.cpp:58->stop_the_world):	 GC中，暂停所有用户线程
+[Info] (/src/memory/memory_chunk.cpp:329->free_available_table):[释放available_table]开始
+[Info] (/src/memory/memory_cell.cpp:29->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]	 释放的Cell信息:start=9, end=10, size=1
+[Info] (/src/memory/memory_chunk.cpp:338->free_available_table):[释放available_table]结束
+[Info] (/src/memory/memory_cell.cpp:169->to_string):[Cell信息]start=7, end=9, size=2
+[Info] (/src/gc/mark_copy.cpp:96->memory_sweep_step):	 未打标记，开始释放资源
+[Info] (/src/memory/memory_cell.cpp:29->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]	 释放的Cell信息:start=7, end=9, size=2
+[Info] (/src/memory/memory_cell.cpp:169->to_string):[Cell信息]start=3, end=7, size=4
+[Info] (/src/gc/mark_copy.cpp:100->memory_sweep_step):	 打了标记，开始处理
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]找到了满足条件的Cell:start=10, end=20, size=10
+[Info] (/src/memory/memory_chunk.cpp:290->malloc_after_gc):开始拷贝内存: ptr_from=1F05CE8, ptr_to=1F05D20, size=32
+[Info] (/src/memory/memory_cell.cpp:169->to_string):[Cell信息]start=1, end=3, size=2
+[Info] (/src/gc/mark_copy.cpp:96->memory_sweep_step):	 未打标记，开始释放资源
+[Info] (/src/memory/memory_cell.cpp:29->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]	 释放的Cell信息:start=1, end=3, size=2
+[Info] (/src/memory/memory_cell.cpp:169->to_string):[Cell信息]start=0, end=1, size=1
+[Info] (/src/gc/mark_copy.cpp:100->memory_sweep_step):	 打了标记，开始处理
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]找到了满足条件的Cell:start=14, end=20, size=6
+[Info] (/src/memory/memory_chunk.cpp:290->malloc_after_gc):开始拷贝内存: ptr_from=1F05CD0, ptr_to=1F05D40, size=8
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]找到了满足条件的Cell:start=15, end=20, size=5
+[Info] (/src/memory/memory_chunk.cpp:68->real_malloc):[真正分配内存]Data起始地址=1F05CD0, cell_start=15, ret=1F05D48
+[Info] (/src/memory/memory_chunk.cpp:329->free_available_table):[释放available_table]开始
+[Info] (/src/memory/memory_cell.cpp:29->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]	 释放的Cell信息:start=20, end=20, size=0
+[Info] (/src/memory/memory_chunk.cpp:338->free_available_table):[释放available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:360->print_available_table):[打印available_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:369->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:374->print_used_table):[打印used_table]开始, size=3
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06250: cell_start=15, cell_end=20, cell_size=5
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06230: cell_start=14, cell_end=15, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F062B0: cell_start=10, cell_end=14, cell_size=4
+[Info] (/src/memory/memory_chunk.cpp:383->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_chunk.cpp:388->print_transer_table):[打印transer_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:397->print_transer_table):[打印transer_table]结束
+[Info] (/src/memory/memory_chunk.cpp:402->print_idle_table):[打印idle_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:408->print_idle_table):	 1F05DE0: cell_start=0, cell_end=10, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:411->print_idle_table):[打印idle_table]结束
+[Info] (/src/memory/memory_chunk.cpp:360->print_available_table):[打印available_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:369->print_available_table):[打印available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:374->print_used_table):[打印used_table]开始, size=3
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06250: cell_start=15, cell_end=20, cell_size=5
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F06230: cell_start=14, cell_end=15, cell_size=1
+[Info] (/src/memory/memory_chunk.cpp:380->print_used_table):	 1F062B0: cell_start=10, cell_end=14, cell_size=4
+[Info] (/src/memory/memory_chunk.cpp:383->print_used_table):[打印used_table]结束
+[Info] (/src/memory/memory_chunk.cpp:388->print_transer_table):[打印transer_table]开始, size=0
+[Info] (/src/memory/memory_chunk.cpp:397->print_transer_table):[打印transer_table]结束
+[Info] (/src/memory/memory_chunk.cpp:402->print_idle_table):[打印idle_table]开始, size=1
+[Info] (/src/memory/memory_chunk.cpp:408->print_idle_table):	 1F05DE0: cell_start=0, cell_end=10, cell_size=10
+[Info] (/src/memory/memory_chunk.cpp:411->print_idle_table):[打印idle_table]结束
+[Info] (/main.cpp:27->main):1F05D20=====>a, c
+[Info] (/src/memory/memory_pool.cpp:28->print_chunks):[打印未释放的内存]开始
+[Info] (/src/memory/memory_pool.cpp:35->print_chunks):	 [未释放的内存]申请位置:( /src/memory/memory_pool.cpp:18 ), 内存大小:160 字节
+[Info] (/src/memory/memory_pool.cpp:38->print_chunks):[打印未释放的内存]结束
+[Info] (/src/memory/memory_pool.cpp:10->~MemoryPool):[调用析构函数]~MemoryPool
+[Info] (/src/memory/memory_chunk.cpp:48->~MemoryChunk):[调用析构函数~MemoryChunk]释放资源
+[Info] (/src/memory/memory_chunk.cpp:51->~MemoryChunk):	 释放资源, 申请内存位置( /src/memory/memory_pool.cpp:18 )，内存大小:160 字节
+[Info] (/src/memory/memory_chunk.cpp:329->free_available_table):[释放available_table]开始
+[Info] (/src/memory/memory_chunk.cpp:338->free_available_table):[释放available_table]结束
+[Info] (/src/memory/memory_chunk.cpp:343->free_used_table):[释放used_table]开始
+[Info] (/src/memory/memory_cell.cpp:29->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]	 释放的Cell信息:start=15, end=20, size=5
+[Info] (/src/memory/memory_cell.cpp:29->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]	 释放的Cell信息:start=14, end=15, size=1
+[Info] (/src/memory/memory_cell.cpp:29->~MemoryCell):[调用析构函数~MemoryCell]释放资源
+[Info] (/src/memory/memory_cell.cpp:174->to_string):[Cell信息]	 释放的Cell信息:start=10, end=14, size=4
+
+Process finished with exit code 0
