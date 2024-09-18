@@ -5,7 +5,7 @@
 #include "../../include/gc/mark_clean.h"
 
 MarkClean::MarkClean(MemoryChunk *mem_chunk) : m_mem_chunk(mem_chunk) {
-
+    INFO_PRINT("%s\n", __func__);
 }
 
 MarkClean::~MarkClean() {

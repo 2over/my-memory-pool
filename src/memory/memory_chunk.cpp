@@ -287,11 +287,19 @@ MemoryCell *MemoryChunk::malloc_after_gc(MemoryCell *transfer_cell) {
                     if (m_cell_num == m_used_cell_num) {
                         free_available_table();
                     }
+                    break;
                 }
                 case GC_MARK_COPY: {
                     if (0 == cell->get_size()) {
                         free_available_table();
                     }
+                    break;
+                }
+                case GC_MARK_CLEAN: {
+                    if (m_cell_num == m_used_cell_num) {
+                        free_available_table();
+                    }
+                    break;
                 }
             }
 
@@ -404,15 +412,34 @@ void MemoryChunk::print_idle_table() {
 }
 
 void MemoryChunk::print_all_table() {
-    print_available_table();
 
-    print_used_table();
-
-    print_transfer_table();
 
     switch (DEFAULT_GC_TYPE) {
+        case GC_MARK_CLEAN: {
+            print_available_table();
+
+            print_used_table();
+            break;
+        }
         case GC_MARK_COPY: {
+            print_available_table();
+
+            print_used_table();
+
+            print_transfer_table();
+
             print_idle_table();
+            break;
+        }
+        case GC_MARK_COLLECT: {
+
+            print_available_table();
+
+            print_used_table();
+
+            print_transfer_table();
+            break;
         }
     }
+
 }

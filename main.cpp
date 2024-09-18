@@ -59,6 +59,26 @@ void mark_compact() {
     delete mem_pool;
 
 }
+
+void mark_clean() {
+    MemoryPool *mem_pool = new MemoryPool();
+
+    MemoryChunk *mem_chunk = mem_pool->new_chunk(78);
+
+    // 模拟内存足够，能分到内存
+    MemoryCell *cell1 = mem_chunk->malloc(8);
+    MemoryCell *cell2 = mem_chunk->malloc(16);
+    MemoryCell *cell3 = mem_chunk->malloc(32);
+    MemoryCell *cell4 = mem_chunk->malloc(16);
+
+    // 模拟GC后因内存碎片，分不到内存
+    mem_chunk->malloc(24);
+
+    mem_pool->print_chunks();
+
+    delete mem_pool;
+
+}
 int main() {
 
     switch (DEFAULT_GC_TYPE) {
@@ -68,6 +88,10 @@ int main() {
         }
         case GC_MARK_COPY: {
             mark_copy();
+            break;
+        }
+        case GC_MARK_CLEAN: {
+            mark_clean();
             break;
         }
     }
